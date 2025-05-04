@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Quiz Sayfası{% endblock %}
+
+{% block content %}
+    <div class="header">
+        <h1>Quiz</h1>
+        <div class="score-box">
+            <p>En Yüksek Skorunuz: {{ user_high_score }}</p>
+            <p>Genel En Yüksek Skor: {{ overall_high_score }}</p>
+        </div>
+    </div>
+
+    <form action="{{ url_for('submit_quiz') }}" method="POST">
+        <!-- Yeni eklenen isim giriş alanı -->
+        <div class="name-input">
+            <label for="username">Adınız:</label>
+            <input type="text" id="username" name="username" required
+                   minlength="3" maxlength="20"
+                   placeholder="En az 3 karakter girin">
+        </div>
+
+        {% for question in questions %}
+            <div class="question">
+                <p>{{ question.text }}</p>
+                <label>
+                    <input type="radio" name="question_{{ question.id }}" value="A" required> {{ question.option_a }}
+                </label><br>
+                <label>
+                    <input type="radio" name="question_{{ question.id }}" value="B"> {{ question.option_b }}
+                </label><br>
+                <label>
+                    <input type="radio" name="question_{{ question.id }}" value="C"> {{ question.option_c }}
+                </label><br>
+                <label>
+                    <input type="radio" name="question_{{ question.id }}" value="D"> {{ question.option_d }}
+                </label>
+            </div>
+        {% endfor %}
+        <button type="submit" class="submit-btn">Testi Gönder</button>
+    </form>
+{% endblock %}

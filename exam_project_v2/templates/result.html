@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Sınav Sonuçları{% endblock %}
+
+{% block content %}
+    <div class="result-header">
+        <h1>Sınav Sonuçları</h1>
+        {% if username %}
+        <h2>Katılımcı: {{ username }}</h2>
+        {% endif %}
+    </div>
+
+    <div class="score-container">
+        <h2>Güncel Skorunuz</h2>
+        <div class="current-score">{{ score }}</div>
+
+        <div class="high-scores">
+            <div class="high-score-box">
+                <h3>En Yüksek Skorunuz</h3>
+                <p>{{ user_high_score if user_high_score else "Henüz kayıt yok" }}</p>
+            </div>
+
+            <div class="high-score-box">
+                <h3>Genel Rekor</h3>
+                <p>{{ overall_high_score if overall_high_score else "Henüz kayıt yok" }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <a href="{{ url_for('quiz') }}" class="button">Tekrar Dene</a>
+
+    </div>
+{% endblock %}

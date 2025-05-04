@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .score-box {
+            text-align: right;
+        }
+
+        .score-box p {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Dashboard</h1>
+        <div class="score-box">
+            <p><strong>Your Highest Score:</strong> {{ current_high_score.score if current_high_score else 0 }}</p>
+            <p><strong>Top Score (All Users):</strong> {{ highest_score.score if highest_score else 0 }}</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Developed by Eray Cem </p>
+    </footer>
+</body>
+</html>

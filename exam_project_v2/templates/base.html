@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} - Quiz Uygulaması</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        // Otomatik session yenileme sistemi
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sayfa ilk yüklendiğinde session kontrolü
+            if(!sessionStorage.getItem('sessionInitialized')) {
+                sessionStorage.setItem('sessionInitialized', 'true');
+
+                // F5 ile yenilenme durumunda
+                if(performance.navigation.type === 1) {
+                    fetch('/reset_session_flags', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    }).then(() => {
+                        window.location.href = window.location.pathname + '?r=' + Math.random();
+                    });
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Quiz Uygulaması | Geliştiren: Eray Cem Güler</p>
+            <p>İletişim: <a href="mailto:email@example.com">eraycemguler2@gmail.com</a></p>
+        </div>
+    </footer>
+
+    <!-- Session yönetimi için ek script -->
+    <script>
+        // Sayfa kapatıldığında session'ı temizle
+        window.addEventListener('beforeunload', function() {
+            sessionStorage.removeItem('sessionInitialized');
+        });
+    </script>
+</body>
+</html>

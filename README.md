@@ -43,10 +43,12 @@ venv\Scripts\activate      # Windows
 pip install -r requirements.txt
 ```
 
-Eğer `requirements.txt` yoksa elle yükleyebilirsiniz:
+Eğer `requirements.txt` çalışmazsa elle yükleyebilirsiniz:
 
 ```bash
-pip install flask flask_sqlalchemy
+pip install flask
+pip install flask_sqlalchemy
+
 ```
 
 ### 4. Veritabanını Oluşturun

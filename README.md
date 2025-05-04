@@ -75,7 +75,4 @@ Tarayıcınızda şu adresi açarak uygulamayı kullanmaya başlayabilirsiniz:
 http://127.0.0.1:5000/
 ```
 
-```
 
-Yukarıdaki metni GitHub `README.md` kısmına yapıştırdığında hem metin hem kodlar doğru şekilde görünecektir. Başka açıklama veya görsel eklemek ister misin?
-```

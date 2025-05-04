@@ -21,7 +21,6 @@ Aynı kullanıcı adını birden fazla kişi kullanmamalıdır. Aksi halde skorl
 
 1. Depoyu klonlayın:
 
-```bash
 git clone https://github.com/ErayCem/Flask-Quiz-App.git
 cd quiz-app
 

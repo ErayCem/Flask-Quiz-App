@@ -1,5 +1,3 @@
-İşte GitHub `README.md` dosyasına **doğrudan yapıştırılabilir** ve **düzenli biçimde görünen** sürüm — metin ve kod blokları düzgün şekilde ayrılmıştır:
-
 ````markdown
 # 🧠 Flask Quiz App
 
